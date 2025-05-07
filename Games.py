@@ -35,4 +35,8 @@ class GuessingGame:
 
 GuessingGame()
 
-# The code above is a simple number guessing game where the user has to guess a random number between 1 and 100. The user has a maximum of 10 attempts to guess the number. After each guess, the program provides feedback on whether the guess was too high or too low. If the user guesses the number correctly, they are congratulated and informed of the number of attempts taken. If they run out of attempts, the game ends and the correct number is revealed. The game uses the random module to generate a random number and includes input validation to ensure the user enters a valid number within the specified range.
+# The code above is a simple number-guessing game where the user has to guess a random number between 1 and 100.
+# The user has a maximum of 10 attempts to guess the number. After each guess, the program provides feedback on whether the guess was too high or too low.
+# If the user guesses the number correctly, they are congratulated and informed of the number of attempts taken. 
+# If they run out of attempts, the game ends, revealing the correct number. 
+# The game uses the random module to generate a random number and includes input validation to ensure the user enters a valid number within the specified range.
