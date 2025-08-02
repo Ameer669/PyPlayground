@@ -183,7 +183,7 @@ def Forms_validations():
 
 if __name__ == "__main__":
 
-    print("\n\n\033[1mWelcome Muwahhid To The Tests Program!\033[0m\n")
+    print("\n\n\033[1mWelcome To The Tests Program!\033[0m\n")
     print("0. Exit")
     print("1. HTTP Info")
     print("2. CowSay")
