@@ -6,7 +6,7 @@ import re
 import yt_dlp
 import csv
 import pandas as pd
-
+import re
 
 def HTTP():
     while True:
@@ -83,7 +83,7 @@ def VD():
             ydl.download([url])
         print(f"Download completed successfully, \npath:{path}.")
     except Exception as e:
-        print(f"An error has occurred ({e})")
+        print(f"An error has occurred ({e})")   
         
 class DrinkCSV:
     def __init__(self, file):
@@ -149,8 +149,40 @@ def EmailValid():
     pattern = r"^[^\s@#$%.^&*()]+@[^\s@#$%^&*()]+\.(com|edu)$"
     print("Valid email address." if re.fullmatch(pattern, email) else "Invalid email address.")
 
-if __name__ == "__main__":
+def Forms_validations():
     
+    # Email format
+    Epattern = r"^[^\s@#$%.^&*()]+@[^\s@#$%^&*()]+\.(com|edu)$"
+
+# 1234567890         -Local format.
+# (059) 123-7890     -Area code format.
+# +970-123-456-7890  -Global format.
+    Ppattern = r"^((\(\d{3}\) \d{3}-\d{4})|(\+\d{3}-\d{3}-\d{3}-\d{4})|(\d{10}))$"
+
+# 4 to 20 chars, Only (letters, numbs, _) Cant start with digit
+    Upattern = r"^(?!\d)\w{4,20}$"
+
+# At least 8 characters. One digit, 
+# one uppercase, one lowercase, one special char.
+    Papattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+]).{8,}$"
+
+# 5 digits
+    Zpattern = r"^\d{5}$"
+
+    inp = input("Email: ")  
+    print("Valid" if (match := re.search(Epattern, inp)) else "Not valid")
+    inp = input("Phone: ")
+    print("Valid" if (match := re.search(Ppattern, inp)) else "Not valid")
+    inp = input("Username: ")
+    print("Valid" if (match := re.search(Upattern, inp)) else "Not valid")
+    inp = input("Password: ")
+    print("Valid" if (match := re.search(Papattern, inp)) else "Not valid")
+    inp = input("Zip code: ")
+    print("Valid" if (match := re.search(Zpattern, inp)) else "Not valid")
+
+
+if __name__ == "__main__":
+
     print("\n\n\033[1mWelcome Muwahhid To The Tests Program!\033[0m\n")
     print("0. Exit")
     print("1. HTTP Info")
@@ -160,6 +192,7 @@ if __name__ == "__main__":
     print("5. CSV (Raw)")
     print("6. CSV (Pandas)")
     print("7. Email Validation")
+    print("8. Form Validations")
 
     while True:
         choice = input("\n\nPick an option: ").strip()
@@ -173,4 +206,5 @@ if __name__ == "__main__":
             case "5": DrinkCSV.main()
             case "6": Pandas_csv()
             case "7": EmailValid()
+            case "8": Forms_validations()
             case _: print("\nInvalid choice.\n")
