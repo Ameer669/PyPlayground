@@ -1,0 +1,265 @@
+{
+  "items": {
+    "weapon_items": {
+      "sword": {
+        "name": "Sword",
+        "type": "equipable",
+        "attack_bonus": 10,
+        "durability": 100,
+        "description": "A sharp and reliable blade, perfectly balanced for combat."
+      },
+      "bone": {
+        "name": "Bone",
+        "type": "equipable",
+        "attack_bonus": 5,
+        "durability": 30,
+        "description": "A sturdy animal bone that can serve as a makeshift club."
+      },
+      "shadow_blade": {
+        "name": "Shadow Blade",
+        "type": "equipable",
+        "attack_bonus": 15,
+        "durability": 80,
+        "description": "A mysterious blade that seems to absorb light. It feels unnaturally cold to the touch."
+      },
+      "hunter_bow": {
+        "name": "Hunter's Bow",
+        "type": "equipable",
+        "attack_bonus": 12,
+        "durability": 60,
+        "description": "A well-crafted bow perfect for hunting or combat at a distance."
+      },
+      "stone_sword": {
+        "name": "Stone Sword",
+        "type": "equipable",
+        "attack_bonus": 8,
+        "durability": 50,
+        "description": "A crudely made but effective sword chipped from stone."
+      },
+      "poison_darts_weapon": {
+        "name": "Poison Darts",
+        "type": "equipable", 
+        "attack_bonus": 3,
+        "special_effect": "apply_poison",
+        "durability": 10, 
+        "description": "Darts tipped with venom. Causes poison on hit. Limited uses."
+      }
+    },
+    "armor_items": {
+      "shield": {
+        "name": "Shield",
+        "type": "equipable",
+        "defense_bonus": 5,
+        "durability": 70,
+        "description": "A sturdy wooden shield reinforced with metal bands."
+      },
+      "boxer": {
+        "name": "Boxer",
+        "type": "equipable",
+        "defense_bonus": 10,
+        "durability": 50,
+        "description": "A set of hardened leather armor, providing decent protection while remaining flexible."
+      },
+      "shadow_cloak": {
+        "name": "Shadow Cloak",
+        "type": "equipable",
+        "defense_bonus": 3, 
+        "special_ability": "stealth",
+        "durability": 60,
+        "description": "A cloak woven from strange dark fibers that seem to blend with shadows. Enhances stealth and fleeing."
+      },
+      "iron_breastplate": {
+        "name": "Iron Breastplate",
+        "type": "equipable",
+        "defense_bonus": 15,
+        "durability": 90,
+        "description": "Heavy but protective iron armor that covers the chest and back."
+      },
+      "miner_helmet": {
+        "name": "Miner's Helmet",
+        "type": "equipable",
+        "defense_bonus": 2,
+        "special_ability": "light_source_small",
+        "durability": 50,
+        "description": "A sturdy helmet with a small, dim light source."
+      },
+      "crafted_shadow_armor": {
+        "name": "Crafted Shadow Armor",
+        "type": "equipable",
+        "defense_bonus": 12,
+        "durability": 70,
+        "description": "Leather armor infused with shadow essence and reinforced with iron."
+      },
+      "reinforced_shield_item": {
+        "name": "Reinforced Shield",
+        "type": "equipable",
+        "defense_bonus": 8,
+        "durability": 100,
+        "description": "A wooden shield heavily reinforced with iron ingots."
+      }
+    },
+    "consumable_items": {
+      "healing_potion": {
+        "name": "Healing Potion",
+        "type": "consumable",
+        "hp_restore": 30,
+        "description": "A red liquid that bubbles slightly. Drinking it restores some of your health."
+      },
+      "greater_healing_potion": {
+        "name": "Greater Healing Potion",
+        "type": "consumable",
+        "hp_restore": 60,
+        "description": "A deep crimson liquid that glows faintly. Drinking it restores a significant amount of health."
+      },
+      "antidote": {
+        "name": "Antidote",
+        "type": "consumable",
+        "effect": "cure_poison",
+        "description": "A bitter green liquid that can neutralize most poisons when consumed."
+      },
+      "strength_elixir": {
+        "name": "Strength Elixir",
+        "type": "consumable",
+        "effect": "strength_boost", 
+        "attack_boost_amount": 5,
+        "duration": 3,
+        "description": "A fizzing yellow liquid that temporarily increases your attack power for 3 turns."
+      },
+      "elixir_of_wisdom": {
+        "name": "Elixir of Wisdom",
+        "type": "consumable",
+        "effect": "reveal_hint", 
+        "description": "A shimmering blue liquid. Drinking it might grant you a moment of clarity or a hint."
+      },
+      "healing_salve": {
+        "name": "Healing Salve",
+        "type": "consumable",
+        "hp_restore": 40,
+        "description": "A soothing salve made from potent herbs, effectively healing wounds."
+      }
+    },
+    "crafting_materials": {
+      "sticks": {
+        "name": "Sticks",
+        "type": "misc",
+        "description": "Common wooden sticks, useful for crafting or building fires."
+      },
+      "leather": {
+        "name": "Leather",
+        "type": "misc",
+        "description": "Tanned animal hide, flexible yet durable. Essential for many crafting recipes."
+      },
+      "shadow_essence": {
+        "name": "Shadow Essence",
+        "type": "misc",
+        "description": "A swirling dark substance collected from defeated shadow creatures. Used in powerful crafting recipes."
+      },
+      "iron_ore": {
+        "name": "Iron Ore",
+        "type": "misc",
+        "description": "Raw chunks of iron-rich rock that can be smelted into pure iron."
+      },
+      "herbs": {
+        "name": "Herbs",
+        "type": "misc",
+        "description": "Various medicinal plants with healing properties when properly prepared."
+      },
+      "cloth": {
+        "name": "Cloth",
+        "type": "misc",
+        "description": "Scraps of cloth, useful for basic crafting and bandages."
+      },
+      "iron_ingot": {
+        "name": "Iron Ingot",
+        "type": "misc",
+        "description": "A bar of smelted iron, used in various crafting recipes."
+      },
+      "spider_venom": {
+        "name": "Spider Venom",
+        "type": "misc",
+        "description": "Potent venom carefully extracted from a giant spider. Highly toxic."
+      }
+    },
+    "special_items": {
+      "forest_map": {
+        "name": "Forest Map",
+        "type": "key_item",
+        "description": "A worn parchment showing paths through the forest and marking points of interest."
+      },
+      "ancient_medallion": {
+        "name": "Ancient Medallion",
+        "type": "key_item",
+        "description": "A mysterious bronze medallion with strange symbols etched around its edge."
+      },
+      "glowing_crystal": {
+        "name": "Glowing Crystal",
+        "type": "key_item", 
+        "special_ability": "light_source_strong",
+        "description": "A crystal that emits a bright, steady blue light, illuminating dark areas effectively."
+      },
+      "pickaxe": {
+        "name": "Pickaxe",
+        "type": "tool",
+        "durability": 100,
+        "description": "A sturdy pickaxe, essential for mining ore."
+      },
+      "ancient_gear": {
+        "name": "Ancient Gear",
+        "type": "key_item",
+        "description": "A complex gear made of an unknown metal. It hums with a faint energy."
+      },
+      "hermit_amulet": {
+        "name": "Hermit's Amulet",
+        "type": "key_item",
+        "description": "A simple wooden amulet, warm to the touch. It feels protective."
+      },
+      "ancient_tablet": {
+        "name": "Ancient Tablet",
+        "type": "key_item",
+        "description": "A heavy stone tablet covered in intricate, faded runes. It seems to be a fragment of a larger text."
+      }
+    },
+    "crafted_results_placeholder": {
+        "simple_raft_item": {"name": "Simple Raft", "type": "misc", "description": "A makeshift raft for crossing water."},
+        "basic_torch_item": {"name": "Basic Torch", "type": "equipable", "special_ability": "light_source_medium", "durability": 20, "description": "A lit torch to see in the dark."}
+    }
+  },
+  "crafting_recipes": {
+    "simple_raft_recipe": {
+      "required_items": { "Sticks": 3, "Leather": 2 },
+      "result_key": "simple_raft_item",
+      "description": "Combine sticks and leather to create a simple raft."
+    },
+    "basic_torch_recipe": {
+      "required_items": { "Sticks": 1, "Cloth": 1 },
+      "result_key": "basic_torch_item",
+      "description": "Wrap cloth around a stick and light it to make a torch."
+    },
+    "crafted_shadow_armor_recipe": {
+      "required_items": { "Shadow Essence": 1, "Leather": 2, "Iron Ingot": 1 },
+      "result_key": "crafted_shadow_armor",
+      "description": "Infuse leather armor with shadow essence and reinforce with iron to create mysterious protective gear."
+    },
+    "iron_ingot_recipe": {
+      "required_items": { "Iron Ore": 2 },
+      "result_key": "iron_ingot",
+      "description": "Smelt two pieces of iron ore to create a solid iron ingot."
+    },
+    "reinforced_shield_recipe": {
+      "required_items": { "Shield": 1, "Iron Ingot": 2 },
+      "result_key": "reinforced_shield_item",
+      "description": "Reinforce a standard shield with iron ingots for increased durability and protection."
+    },
+    "healing_salve_recipe": {
+      "required_items": { "Herbs": 3, "Cloth": 1 },
+      "result_key": "healing_salve",
+      "description": "Combine herbs and cloth to create a potent healing salve."
+    },
+    "poison_darts_recipe": {
+      "required_items": { "Sticks": 5, "Spider Venom": 1 },
+      "result_key": "poison_darts_weapon",
+      "description": "Fashion small darts from sticks and tip them with potent spider venom."
+    }
+  }
+}
+

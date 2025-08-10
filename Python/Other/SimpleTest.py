@@ -6,7 +6,6 @@ import re
 import yt_dlp
 import csv
 import pandas as pd
-import re
 
 def HTTP():
     while True:
@@ -66,7 +65,7 @@ def VD():
 
     options = {
         'format': 'best[height<=1080]/best',
-            'outtmpl': f"{path}\\%(title)s.%(ext)s",
+        'outtmpl': f"{path}\\%(title)s.%(ext)s",
         'ignoreerrors': True,
         'concurrent_fragments': 4,  
         'http_chunk_size': 10485760,  
@@ -123,7 +122,6 @@ class DrinkCSV:
                 print(f"\n\033[1mCountry: {drink['country']}\033[0m")
                 print(f"Beer servings: {drink['beer_servings']}")
                 
-    @staticmethod
     def main():
         file = DrinkCSV("drinks.csv")
         drinks = file.read()
@@ -154,19 +152,19 @@ def Forms_validations():
     # Email format
     Epattern = r"^[^\s@#$%.^&*()]+@[^\s@#$%^&*()]+\.(com|edu)$"
 
-# 1234567890         -Local format.
-# (059) 123-7890     -Area code format.
-# +970-123-456-7890  -Global format.
+    # 1234567890         -Local format.
+    # (059) 123-7890     -Area code format.
+    # +970-123-456-7890  -Global format.
     Ppattern = r"^((\(\d{3}\) \d{3}-\d{4})|(\+\d{3}-\d{3}-\d{3}-\d{4})|(\d{10}))$"
 
-# 4 to 20 chars, Only (letters, numbs, _) Cant start with digit
+    # 4 to 20 chars, Only (letters, numbs, _) Cant start with digit
     Upattern = r"^(?!\d)\w{4,20}$"
 
-# At least 8 characters. One digit, 
-# one uppercase, one lowercase, one special char.
-    Papattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+]).{8,}$"
+    # At least 8 characters. One digit, 
+    # one uppercase, one lowercase, one special char.
+    Papattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%&*!?]).{8,}$"
 
-# 5 digits
+    # 5 digits
     Zpattern = r"^\d{5}$"
 
     inp = input("Email: ")  
@@ -180,6 +178,45 @@ def Forms_validations():
     inp = input("Zip code: ")
     print("Valid" if (match := re.search(Zpattern, inp)) else "Not valid")
 
+class Book:
+    def __init__(self, title, author, price=0.0):
+        self.title = title
+        self.author = author
+        self.price = int(price)
+
+    def __str__(self):
+        return f'"{self.title}" by {self.author} - ${self.price:.2f}'
+
+    @property
+    def price(self) -> int:
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        try:
+            if value == str(value):
+                raise TypeError("Value must be a number")
+            if value < 0:
+                raise ValueError("Price cannot be negative")
+        except Exception as e:
+            print(f"\nAn error has occrured: {e}\n")
+        self._price = value
+        
+    @classmethod
+    def finput(cls, price =0.0):
+        try:
+            title = input("Enter book title: ")
+            author = input("Enter book author: ")
+            price = float(input("Enter book price: "))
+        except ValueError:
+            pass
+        return cls(title, author, price)
+
+    @staticmethod
+    def cufo(amount):
+        return f"${amount:,.2f}"
+    
+  
 
 if __name__ == "__main__":
 
@@ -193,6 +230,7 @@ if __name__ == "__main__":
     print("6. CSV (Pandas)")
     print("7. Email Validation")
     print("8. Form Validations")
+    print("9. Book Information")
 
     while True:
         choice = input("\n\nPick an option: ").strip()
@@ -207,4 +245,5 @@ if __name__ == "__main__":
             case "6": Pandas_csv()
             case "7": EmailValid()
             case "8": Forms_validations()
+            case "9": book = print(Book.finput())
             case _: print("\nInvalid choice.\n")

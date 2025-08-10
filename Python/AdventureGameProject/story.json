@@ -1,0 +1,391 @@
+{
+  "Title": "My Adventure",
+  "Author": "Amir Sulaiman",
+  "version": "0.0.6v (beta)",
+  "description": "In a forsaken realm where shadows writhe and ancient trees whisper curses, you stand alone, a weary soul thrust into a merciless forest cloaked in eternal gloom. The air is thick with menace, and unseen eyes track your every step. Malevolent forces—beasts, specters, and lords of forgotten power—lurk in the darkness, eager to test your resolve. Survival demands cunning, bravery, or sacrifice. Will you unravel the forests grim secrets, or become another lost echo in its unyielding abyss? Steel your heart, for this is no mere journey—this is a descent into destiny.",
+  "start_time": "2025-05-08",
+
+
+
+  
+  
+  "player": {
+    "name": "Player",
+    "hp": 100,
+    "attack_range": [10, 15],
+    "defense": 2,
+    "inventory": []
+  },
+  
+  "enemies": {
+    "wild_animal": {
+      "name": "a Wild Animal",
+      "hp": 50,
+      "attack_range": [5, 12],
+      "defense": 3
+    },
+    "The Cat": {
+      "name": "a Cat",
+      "hp": 30,
+      "attack_range": [2, 8],
+      "defense": 1
+    },
+    "The Shadow": {
+      "name": "The Shadow",
+      "hp": 100,
+      "attack_range": [15, 25],
+      "defense": 5
+    },
+    "Akkawi": {
+      "name": "Akkawi, the king of Boxers",
+      "hp": 100,
+      "attack_range": [20, 25],
+      "defense": 2
+    },
+    "Hatem": {
+      "name": "Hatem, the lazy guy",
+      "hp": 200,
+      "attack_range": [5, 10],
+      "defense": 10
+    }
+  },
+  "dark_area_description": "The mine entrance is pitch black. You can barely see your hand in front of your face. You hear skittering sounds from within.",
+  "is_night": false,
+  "weather": "clear",
+
+
+  "start": {
+    "node_title": "The Gloomy Forest",
+    "text": "You find yourself in a dark, eerie forest, unsure of how you ended up here. The trees loom overhead, their branches twisting like skeletal fingers. You can hear the distant sound of water flowing.",
+    "choices": {
+      "Walk": {
+        "type": "regular",
+        "node": "forward",
+        "hp_change": 0
+      }
+    },
+    "items": [],
+    "make_day": true
+  },
+  "forward": {
+    "node_title": "The Forked Path",
+    "text": "You take a deep breath and step forward. Ahead, the road splits into two distinct paths, and from the left, you hear the gentle rush of flowing water.",
+    "choices": {
+      "Go left": {
+        "type": "regular",
+        "node": "left_path",
+        "hp_change": 0
+      },
+      "Go right": {
+        "type": "regular",
+        "node": "right_path",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "left_path": {
+    "node_title": "Curious Cat Encounter",
+    "text": "You spot a cute little cat perched nearby, its bright eyes sparkling with curiosity!",
+    "choices": {
+      "Pet it": {
+        "type": "regular",
+        "node": "pet_cat",
+        "hp_change": 0
+      },
+      "Attack it": {
+        "type": "combat",
+        "enemy": {
+          "name": "The Cat",
+          "hp": 30,
+          "attack_range": [2, 8],
+          "defense": 1
+        },
+        "win_node": "cat_death",
+        "flee_node": "river"
+      }
+    },
+    "items": []
+  },
+  "pet_cat": {
+    "node_title": "Curious Cat Encounter",
+    "text": "It disappeared down the road, and a strange intuition urges you to follow the very path it took..",
+    "choices": {
+      "Follow it": {
+      "type": "regular",
+        "node": "treasure",
+        "hp_change": 0
+        },
+      "Ignore it and proceed to the river": {
+        "type": "regular",
+        "node": "river",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "treasure": {
+    "node_title": "The Hidden Treasure",
+    "text": "Guided by intuition, you follow the mysterious cat down the road. Near a gnarled tree, you spot a glint and uncover a dusty, ornate chest, a hidden treasure!",
+    "choices": {
+      "Press onward": {
+        "type": "regular",
+        "node": "river",
+        "hp_change": 0
+      }
+    },
+    "items": ["leather","sticks","healing_potion"]
+  },
+  "cat_death": {
+    "node_title": "Dark Deeds Forest Echoes",
+    "text": "As the cat lies still, a chill settles over the forest. The air feels heavier, and a faint rustle in the shadows hints that something or someone watched your deed.",
+    "choices": {
+      "Continue Walking": {
+        "type": "regular",
+        "node": "river2",
+        "hp_change": 0
+      },
+      "Go Back": {
+        "type": "regular",
+        "node": "start2",
+        "hp_change": 0
+      }
+    },
+    "items": ["cat_meat"]
+  },
+  "start2": {
+    "node_title": "Fleeing Shadows Crossroads",
+    "text": "Heart pounding after the cat's fall, you flee through the eerie forest, the shadows closing in. You reach the fork in the road, where two paths, one whispering with water, the other cloaked in silence, awaiting your choice.",
+     "choices": {
+      "Go left": {
+        "type": "regular",
+        "node": "river2",
+        "hp_change": 0
+      },
+      "Go right": {
+        "type": "regular",
+        "node": "right_path",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "river": {
+    "node_title": "Turbulent River Crossing",
+    "text": "You face a rushing river, its waters deep and turbulent. If you have leather and sticks, you could craft a raft to cross safely. Without them, you will need to dive into the icy current and swim across.",
+    "choices": {
+      "Swim across": {
+        "type": "regular",
+        "node": "tree",
+        "hp_change": -20
+      },
+      "Build a Raft": {
+        "type": "regular",
+        "node": "raft",
+        "hp_change": 0,
+        "condition": ["Leather", "Sticks"]
+      }
+    },
+    "items": []
+  },
+  "raft": {
+    "node_title": "Crossing the Wild Waters",
+    "text": "Using the leather and sticks, you craft a sturdy raft. You push off into the turbulent river, paddling hard against the current, and finally reach the far shore, soaked but triumphant.",
+    "choices": {
+      "Continue": {
+        "type": "regular",
+        "node": "tree",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "tree": {
+    "node_title": "A Haven in the Wild",
+    "text": "After braving the river, you come upon a peaceful clearing. In its center stands a tall, sturdy tree with wide branches and soft moss at its base. The breeze is calm here, and for the first time in a while, you feel safe.",
+    "sleep_choices": {
+      "sleep_node": "rested",
+      "move_node": "deep_forest"
+    },
+    "make_night": true,
+    "items": []
+  },
+  "rested": {
+    "node_title": "Nature's Respite",
+    "text": "You lie back beneath the tree, letting the soft moss cradle your aching limbs. The gentle rustling of leaves above lulls you into a brief but refreshing rest. You awaken feeling stronger and ready to face whatever lies ahead.",
+    "choices": {
+      "Continue your journey": {
+        "type": "regular",
+        "node": "deep_forest",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "deep_forest": {
+    "node_title": "Secrets in the Dim Woods",
+    "text": "You venture deeper into the forest, the canopy growing thicker with each step. The light dims, and the sounds of birds fade, replaced by the quiet rustle of unseen creatures. Something tells you this part of the woods holds secrets, and dangers.",
+    "choices": {
+      "Proceed cautiously": {
+        "type": "regular",
+        "node": "crossroads",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "river2": {
+    "node_title": "Crossing the Rapids",
+    "text": "You face a rushing river, its waters deep and turbulent. If you have leather and sticks, you could craft a raft to cross safely. Without them, you will need to dive into the icy current and swim across.",
+    "choices": {
+      "Swim across": {
+        "type": "regular",
+        "node": "tree2",
+        "hp_change": -20
+      },
+      "Build a Raft": {
+        "type": "regular",
+        "node": "raft",
+        "hp_change": 0,
+        "condition": ["Sticks", "Leather"]
+      }
+    },
+    "items": []
+  },
+  "tree2": {
+    "node_title": "Under Embracing Branches",
+    "text": "After braving the river, you come upon a peaceful clearing. In its center stands a tall, sturdy tree with wide branches and soft moss at its base. The breeze is calm here, and for the first time in a while, you feel safe. You could rest beneath the tree to regain your strength, or press on while the trail is still fresh.",
+    "sleep_choices": {
+      "sleep_node": "rest_shadow",
+      "move_node": "deep_forest"
+    },
+    "make_night": true,
+    "items": []
+  },
+  "rest_shadow": {
+    "node_title": "Vengeful Shadow",
+    "text": "You sink into the moss and drift into a deep, dreamless sleep. Moments later, you wake with a jolt: looming over you is an impossibly tall, shadowy figure. Its glowing eyes burn with fury. This is the Shadow! and its anger at your deed is palpable.",
+    "choices": {
+      "Stand and fight": {
+        "type": "combat",
+        "enemy": {
+        "name": "The Shadow",
+        "hp": 100,
+        "attack_range": [15, 25],
+        "defense": 5
+        },
+        "win_node": "victory_over_shadow",
+        "flee_node": "flee_shadow"
+      },
+      "Try to flee": {
+        "type": "regular",
+        "node": "flee_shadow",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "victory_over_shadow": {
+    "node_title": "Dawn of Victory",
+    "text": "With a final, courageous strike, you shatter the Shadow's form. Light floods the clearing as the oppressive darkness dissipates. Exhausted but victorious, you gather your wits and prepare to continue your journey.",
+    "choices": {
+      "Move on": {
+        "type": "regular",
+        "node": "deep_forest",
+        "hp_change": 0
+      }
+    },
+    "items": ["Shadow Cloak"],
+    "make_day": true
+  },
+  "flee_shadow": {
+    "node_title": "Fleeing the Nightmare",
+    "text": "Fear grips you, but adrenaline fuels your legs. You bolt into the forest, the Shadow's roar echoing behind you. Branches tear at your clothes, but you manage to put distance between you and that nightmare form.",
+    "choices": {
+      "Regain composure and proceed cautiously": {
+        "type": "regular",
+        "node": "deep_forest",
+        "hp_change": -10
+      }
+    },
+    "items": []
+  },
+  "crossroads": {
+      "node_title": "Crossroads of Gloom and Glow",
+      "text": "Deep in the forest, the path splits before you. One way leads to an abandoned cave shrouded in darkness and silent history; the other, a distant but steady fire that casts an alluring glow through the thick canopy. The cave hints at forgotten secrets and hidden perils waiting in the gloom, whereas the fire's warmth and light promise either refuge or unforeseen danger. Your decision now will set the tone for what lies ahead.",
+      "choices": {
+        "Path of Dark": {
+          "type": "regular",
+          "node": "cave",
+          "hp_change": 0
+        },
+        "Path of Light": {
+          "type": "regular",
+          "node": "fire",
+          "hp_change": 0
+        }
+      },
+      "items": []
+    },
+  "cave": {
+    "node_title": "The Veiled Passage",
+    "text": "",
+    "dark_area_description": "The cave looms before you, its mouth a gaping maw of darkness. The air is thick with the scent of damp earth and decay, every step echoing against ancient, rough-hewn stone. Faint whispers of history and lost memories mingle with the chill in the air, daring you to uncover its secrets",
+    "choices": {
+      "EDIT": {
+        "type": "regular",
+        "node": "EDIT",
+        "hp_change": 0
+      },
+      "EDIT2": {
+        "type": "regular",
+        "node": "EDIT",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "fire": {
+    "node_title": "The Lure of the Fire",
+    "text": "The glow of the distant fire tugs at your senses as you move closer. Its dancing flames illuminate a path through the thick undergrowth, promising warmth amid the oppressive shadows. Yet, the play of light and darkness brings uncertainties: is it a beacon of hope or a trap in disguise? Every crackle of the fire stokes both comfort and caution within you.",
+    "choices": {
+      "EDIT": {
+        "type": "regular",
+        "node": "EDIT",
+        "hp_change": 0
+      },
+      "EDIT2": {
+        "type": "regular",
+        "node": "EDIT",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+
+
+
+
+
+
+  "right_path": {
+    "text": "EDIT",
+    "choices": {
+      "Open it": {
+        "type": "regular",
+        "node": "EDIT",
+        "hp_change": 0
+      },
+      "Leave it alone": {
+        "type": "regular",
+        "node": "start",
+        "hp_change": 0
+      }
+    },
+    "items": []
+  },
+  "end": {
+    "text": "Game Over!",
+    "choices": {}
+  }
+}
