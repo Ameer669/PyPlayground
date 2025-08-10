@@ -28,7 +28,7 @@ class PIG:
                 if dice == 1:
                     player.turn_score = 0
                     player.is_round_complete = True
-                    print("Round over! You rolled a 1.")
+                    print("\033[31mRound over! You rolled a 1.\033[0m")
                 else:
                     player.turn_score += dice
                     if player.score + player.turn_score >= self.win_score:
@@ -38,7 +38,7 @@ class PIG:
                 player.score += player.turn_score
                 player.turn_score = 0
                 player.is_round_complete = True
-                print("You held. Turn score added to total.")
+                print("\033[33m\nYou held. Turn score added to total.\033[0m")
             else:
                 print("Invalid choice. Please enter 'R' or 'H'.")
         print(f"Total score for Player {player_num}: {player.score}")
