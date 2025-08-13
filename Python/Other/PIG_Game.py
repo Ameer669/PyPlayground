@@ -1,3 +1,13 @@
+"""
+- Description: Text-based Pig game
+- How to play:
+  1. Players take turns rolling a die.
+  2. On each turn, a player can roll the die as many times as they want, accumulating points for each roll.
+  3. If a player rolls a 1, they lose all points for that turn and their turn ends.
+  4. If a player chooses to "hold", their turn ends and their turn points are added to their total score.
+  5. The first player to reach the winning score (default 100) wins the game.
+"""
+
 import random as rnd
 import time
 
